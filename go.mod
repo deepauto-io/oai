@@ -1,4 +1,4 @@
-module github.com/oai
+module github.com/deepauto-io/oai
 
 go 1.21.5
 
