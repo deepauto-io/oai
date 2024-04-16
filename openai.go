@@ -19,8 +19,8 @@ package oai
 import "github.com/sashabaranov/go-openai"
 
 // OpenAI represents the OpenAI interface.[将ChatCompletionRequest转换成OpenAI请求格式.]
-func (r *ChatCompletionRequest) OpenAI() *openai.ChatCompletionRequest {
-	req := &openai.ChatCompletionRequest{
+func (r *ChatCompletionRequest) OpenAI() openai.ChatCompletionRequest {
+	req := openai.ChatCompletionRequest{
 		Model:     r.Model,
 		Stream:    r.Stream,
 		MaxTokens: r.MaxTokens,
