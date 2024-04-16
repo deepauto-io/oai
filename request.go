@@ -62,8 +62,8 @@ func (r *ChatCompletionRequest) Validate() error {
 		r.Action = "next"
 	}
 
-	if r.MaxTokens <= 0 {
-		r.MaxTokens = 2048
+	if r.MaxTokens < 0 {
+		r.MaxTokens = 0
 	}
 
 	if govalidator.IsNull(r.ConversationID) {
