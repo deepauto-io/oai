@@ -39,3 +39,17 @@ func (r *UploadRequest) Validate() error {
 	}
 	return nil
 }
+
+// UploadResponse is the upload response.
+type UploadResponse struct {
+	ID             string `json:"id"`
+	Name           string `json:"name"`
+	Size           int64  `json:"size"`
+	DownloadUrl    string `json:"download_url"`
+	ImageWidth     int    `json:"image_width"`
+	ImageHeight    int    `json:"image_height"`
+	UseCase        string `json:"use_case"`
+	FileTokenSize  int    `json:"fileTokenSize,omitempty"`
+	MimeType       string `json:"mimeType"`
+	ConversationId string `json:"conversation_id"`
+}
