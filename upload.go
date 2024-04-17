@@ -34,7 +34,7 @@ func (r *UploadRequest) Validate() error {
 		return fmt.Errorf("file is required")
 	}
 
-	if r.UploadType != string(filestype.MyFiles) || r.UploadType != string(filestype.Multimodal) {
+	if r.UploadType != string(filestype.MyFiles) && r.UploadType != string(filestype.Multimodal) {
 		return fmt.Errorf("invalid upload type")
 	}
 	return nil
