@@ -25,7 +25,9 @@ const (
 	AssistantCodeInterpreter = "code_interpreter"
 	AssistantLogs            = "logs"
 	AssistantCode            = "code"
+	AssistantTools           = "tool"
 	AssistantMultimodalText  = "multimodal_text"
+	AssistantDalle           = "dalle.text2im"
 )
 
 // Assistant represents the assistant interface.
