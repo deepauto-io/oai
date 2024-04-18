@@ -18,6 +18,13 @@ package oai
 
 import "github.com/sashabaranov/go-openai"
 
+// Assistant represents the assistant interface.
+type Assistant struct {
+	Name         string `json:"name"`
+	Description  string `json:"description"`
+	Instructions string `json:"instructions"`
+}
+
 // OpenAI represents the OpenAI interface.[将ChatCompletionRequest转换成OpenAI请求格式.]
 func (r *ChatCompletionRequest) OpenAI() openai.ChatCompletionRequest {
 	req := openai.ChatCompletionRequest{
