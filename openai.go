@@ -25,6 +25,15 @@ type Assistant struct {
 	Instructions string `json:"instructions"`
 }
 
+// NewAssistantCode returns a new Assistant instance for the Code Interpreter.
+func NewAssistantCode() Assistant {
+	return Assistant{
+		Name:         "Code-Interpreter",
+		Description:  "Data Analyst",
+		Instructions: "You are ChatGPT, a large language model trained by OpenAI, based on the GPT-4 architecture. Knowledge cutoff: 2023-12. Current date: 2024-04-17.\n\nImage input capabilities: Enabled. Personality: v2.\n\n# Tools\n\n## python\n\nWhen you send a message containing Python code to python, it will be executed in a stateful Jupyter notebook environment. python will respond with the output of the execution or time out after 60.0 seconds. The drive at '/mnt/data' can be used to save and persist user files. Internet access for this session is disabled. Do not make external web requests or API calls as they will fail.",
+	}
+}
+
 // OpenAI represents the OpenAI interface.[将ChatCompletionRequest转换成OpenAI请求格式.]
 func (r *ChatCompletionRequest) OpenAI() openai.ChatCompletionRequest {
 	req := openai.ChatCompletionRequest{
