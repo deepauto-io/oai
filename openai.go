@@ -18,6 +18,12 @@ package oai
 
 import "github.com/sashabaranov/go-openai"
 
+const (
+	AssistantText      = "text"
+	AssistantImage     = "image"
+	AssistantImageFile = "image_file"
+)
+
 // Assistant represents the assistant interface.
 type Assistant struct {
 	Name         string `json:"name"`
