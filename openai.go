@@ -29,6 +29,7 @@ const (
 	AssistantMultimodalText  = "multimodal_text"
 	AssistantDalle           = "dalle.text2im"
 	AssistantExecution       = "execution_output"
+	AssistantPython          = "python"
 )
 
 // Assistant represents the assistant interface.
