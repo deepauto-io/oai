@@ -23,6 +23,7 @@ const (
 	AssistantImage           = "image"
 	AssistantImageFile       = "image_file"
 	AssistantCodeInterpreter = "code_interpreter"
+	AssistantLogs            = "logs"
 )
 
 // Assistant represents the assistant interface.
