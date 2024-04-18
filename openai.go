@@ -24,6 +24,8 @@ const (
 	AssistantImageFile       = "image_file"
 	AssistantCodeInterpreter = "code_interpreter"
 	AssistantLogs            = "logs"
+	AssistantCode            = "code"
+	AssistantMultimodalText  = "multimodal_text"
 )
 
 // Assistant represents the assistant interface.
