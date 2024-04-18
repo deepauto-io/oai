@@ -30,6 +30,7 @@ const (
 	AssistantDalle           = "dalle.text2im"
 	AssistantExecution       = "execution_output"
 	AssistantPython          = "python"
+	AssistantFilePath        = "file_path"
 )
 
 // Assistant represents the assistant interface.
