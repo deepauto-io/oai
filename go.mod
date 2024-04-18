@@ -8,6 +8,9 @@ require (
 	github.com/sashabaranov/go-openai v1.21.0
 )
 
+replace github.com/sashabaranov/go-openai v1.22.0 => github.com/push-edp/go-openai v0.0.0-20240416174103-9d5b5f211969
+
+
 require (
 	github.com/deepauto-io/filestype v0.0.0-20231217053401-a7e90f2e6b3c
 	github.com/gabriel-vasile/mimetype v1.4.3 // indirect
