@@ -34,3 +34,32 @@ func (r *ChatCompletionRequest) OpenAI() openai.ChatCompletionRequest {
 	}
 	return req
 }
+
+// Assistant represents the assistant interface.[将ChatCompletionRequest转换成Assistant请求格式.]
+func (r *ChatCompletionRequest) Assistant() openai.ThreadRequest {
+	req := openai.ThreadRequest{}
+
+	for _, message := range r.Messages {
+		msg := openai.ThreadMessage{
+			Role:    openai.ThreadMessageRole(message.Role),
+			Content: message.Content,
+		}
+
+		// 多模态处理
+		if len(message.Parts) != 0 {
+			for _, part := range message.Parts {
+				msg.FileIDs = append(msg.FileIDs, part.AssetPointer)
+			}
+		}
+
+		// 代码解释器处理
+		if len(message.Attachments) != 0 {
+			for _, attachment := range message.Attachments {
+				msg.FileIDs = append(msg.FileIDs, attachment.Id)
+			}
+		}
+
+		req.Messages = append(req.Messages, msg)
+	}
+	return req
+}
