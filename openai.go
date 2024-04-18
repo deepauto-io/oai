@@ -19,9 +19,10 @@ package oai
 import "github.com/sashabaranov/go-openai"
 
 const (
-	AssistantText      = "text"
-	AssistantImage     = "image"
-	AssistantImageFile = "image_file"
+	AssistantText            = "text"
+	AssistantImage           = "image"
+	AssistantImageFile       = "image_file"
+	AssistantCodeInterpreter = "code_interpreter"
 )
 
 // Assistant represents the assistant interface.
