@@ -21,4 +21,6 @@ var (
 	InProgress = "in_progress"
 	// FinishedSuccessfully is the finished successfully.
 	FinishedSuccessfully = "finished_successfully"
+	// All is the all.
+	All = "all"
 )
