@@ -27,6 +27,8 @@ func (in *ChatCompletionRequest) GPT3() openai.OpenAIChatRequest {
 		ConversationMode: map[string]interface{}{
 			"kind": "primary_assistant",
 		},
+		ConversationId:             in.ConversationID,
+		ParentMessageId:            in.ParentMessageID,
 		Model:                      in.Model,
 		Stream:                     in.Stream,
 		ForceParagen:               false,
@@ -37,7 +39,15 @@ func (in *ChatCompletionRequest) GPT3() openai.OpenAIChatRequest {
 	}
 
 	if in.Action == "" {
-		in.Action = "next"
+		req.Action = "next"
+	}
+
+	if in.ParentMessageID == "" {
+		req.ParentMessageId = uuid.NewString()
+	}
+
+	if in.Model == "" {
+		req.Model = "text-davinci-002-render-sha"
 	}
 
 	if len(in.Messages) != 0 {
@@ -52,7 +62,7 @@ func (in *ChatCompletionRequest) GPT3() openai.OpenAIChatRequest {
 
 			if len(message.Parts) == 0 {
 				msg.Content = openai.Content{
-					ContentType: "text", // text
+					ContentType: "text",
 					Parts: []interface{}{
 						message.Content,
 					},
