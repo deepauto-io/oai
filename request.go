@@ -20,7 +20,6 @@ import (
 	"fmt"
 
 	"github.com/asaskevich/govalidator"
-	"github.com/google/uuid"
 	openaiv2 "github.com/sashabaranov/go-openai"
 )
 
@@ -64,10 +63,6 @@ func (r *ChatCompletionRequest) Validate() error {
 
 	if r.MaxTokens < 0 {
 		r.MaxTokens = 0
-	}
-
-	if govalidator.IsNull(r.ConversationID) {
-		r.ConversationID = uuid.NewString()
 	}
 	return nil
 }
