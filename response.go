@@ -16,12 +16,20 @@ limitations under the License.
 
 package oai
 
+import "encoding/json"
+
 // ChatCompletionResponse represents the response of the ChatCompletion API.
 type ChatCompletionResponse struct {
 	ConversationID string              `json:"conversation_id"`
 	Error          interface{}         `json:"error"`
 	Message        Message             `json:"message,omitempty"`
 	Downloads      []map[string]string `json:"downloads,omitempty"`
+}
+
+// Marshal returns the JSON encoding of ChatCompletionResponse.
+func (c ChatCompletionResponse) Marshal() []byte {
+	body, _ := json.Marshal(c)
+	return body
 }
 
 // Message is the message for chat service.
