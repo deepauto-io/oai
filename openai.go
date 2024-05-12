@@ -94,3 +94,32 @@ func (r *ChatCompletionRequest) Assistant() openai.ThreadRequest {
 	}
 	return req
 }
+
+// MessageRequest returns the message request.[将ChatCompletionRequest转换成Message请求格式.]
+func (r *ChatCompletionRequest) MessageRequest() []openai.MessageRequest {
+	var reqs []openai.MessageRequest
+
+	for _, message := range r.Messages {
+		msg := openai.MessageRequest{
+			Role:    message.Role,
+			Content: message.Content,
+		}
+
+		// 多模态处理
+		if len(message.Parts) != 0 {
+			for _, part := range message.Parts {
+				msg.FileIds = append(msg.FileIds, part.AssetPointer)
+			}
+		}
+
+		// 代码解释器处理
+		if len(message.Attachments) != 0 {
+			for _, attachment := range message.Attachments {
+				msg.FileIds = append(msg.FileIds, attachment.Id)
+			}
+		}
+
+		reqs = append(reqs, msg)
+	}
+	return reqs
+}
