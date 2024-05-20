@@ -24,6 +24,7 @@ type ChatCompletionResponse struct {
 	Error          interface{}         `json:"error"`
 	Message        Message             `json:"message,omitempty"`
 	Downloads      []map[string]string `json:"downloads,omitempty"`
+	Stop           bool                `json:"stop"`
 }
 
 // Marshal returns the JSON encoding of ChatCompletionResponse.
