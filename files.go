@@ -21,7 +21,7 @@ type FileResponse struct {
 	ConversationID string `json:"conversation_id"`
 	ID             string `json:"id"`
 	Name           string `json:"name"`
-	Size           int64  `json:"size"`
+	Size           int    `json:"size"`
 	DownloadUrl    string `json:"download_url"`
 	ImageWidth     int    `json:"image_width"`
 	ImageHeight    int    `json:"image_height"`
