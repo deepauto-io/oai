@@ -80,7 +80,7 @@ type ChatCompletionMessage struct {
 }
 
 // Parts is the parts for chat service.
-type Parts []*Part
+type Parts []Part
 
 // Part is the part for chat service.
 type Part struct {
@@ -91,6 +91,7 @@ type Part struct {
 	Height       int    `json:"height"`
 	MimeType     string `json:"mimeType"`
 	ImageData    string `json:"image_data,omitempty"`
+	OssUrl       string `json:"oss_url,omitempty"`
 }
 
 // Attachments is the attachments for chat service.
@@ -105,4 +106,5 @@ type Attachment struct {
 	MimeType      string `json:"mimeType"`
 	Width         int    `json:"width,omitempty"`
 	Height        int    `json:"height,omitempty"`
+	OssUrl        string `json:"oss_url,omitempty"`
 }
