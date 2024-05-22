@@ -48,8 +48,10 @@ func (r *ChatCompletionRequest) Validate() error {
 	}
 
 	for idx, message := range r.Messages {
-		if govalidator.IsNull(message.Content) {
-			return fmt.Errorf("%d message content is empty", idx)
+		if len(message.Parts) == 0 && len(message.Attachments) == 0 {
+			if govalidator.IsNull(message.Content) {
+				return fmt.Errorf("%d message content is empty", idx)
+			}
 		}
 
 		if govalidator.IsNull(message.Role) {
