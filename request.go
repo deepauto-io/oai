@@ -17,6 +17,7 @@ limitations under the License.
 package oai
 
 import (
+	"encoding/json"
 	"fmt"
 
 	"github.com/asaskevich/govalidator"
@@ -35,6 +36,11 @@ type ChatCompletionRequest struct {
 	HistoryAndTrainingDisabled bool                   `json:"history_and_training_disabled,omitempty"`
 	Namespace                  string                 `json:"namespace"`
 	MaxTokens                  int                    `json:"max_tokens"`
+}
+
+func (c ChatCompletionRequest) Marshal() []byte {
+	body, _ := json.Marshal(c)
+	return body
 }
 
 // Validate validates the request for the conversation endpoint.
