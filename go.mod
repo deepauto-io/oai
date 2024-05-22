@@ -8,6 +8,8 @@ require (
 	github.com/sashabaranov/go-openai v1.21.0
 )
 
+require github.com/spf13/cast v1.6.0 // indirect
+
 replace github.com/sashabaranov/go-openai v1.22.0 => github.com/push-edp/go-openai v0.0.0-20240416174103-9d5b5f211969
 
 require (

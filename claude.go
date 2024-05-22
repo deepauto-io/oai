@@ -16,7 +16,10 @@ limitations under the License.
 
 package oai
 
-import "github.com/deepauto-io/oai/claude"
+import (
+	"github.com/deepauto-io/oai/claude"
+	"github.com/spf13/cast"
+)
 
 // Claude returns the claude chat request.
 func (r *ChatCompletionRequest) Claude() *claude.ClaudeChatRequest {
@@ -64,7 +67,7 @@ func (r *ChatCompletionRequest) Claude() *claude.ClaudeChatRequest {
 
 			contents = append(contents, claude.Content{
 				Type: "text",
-				Text: message.Content,
+				Text: cast.ToString(message.Content),
 			})
 
 			req.Messages = append(req.Messages, claude.Message{
