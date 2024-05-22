@@ -36,16 +36,17 @@ func (c ChatCompletionResponse) Marshal() []byte {
 
 // Message is the message for chat service.
 type Message struct {
-	Id         string      `json:"id"`
-	Author     Author      `json:"author"`
-	CreateTime float64     `json:"create_time"`
-	UpdateTime float64     `json:"update_time"`
-	Content    Content     `json:"content"`
-	Status     string      `json:"status"`
-	EndTurn    bool        `json:"end_turn"`
-	Weight     float64     `json:"weight"`
-	Metadata   interface{} `json:"metadata"`
-	Recipient  string      `json:"recipient"`
+	Id         string                 `json:"id"`
+	Author     Author                 `json:"author"`
+	CreateTime float64                `json:"create_time"`
+	UpdateTime float64                `json:"update_time"`
+	Content    Content                `json:"content"`
+	Status     string                 `json:"status"`
+	EndTurn    bool                   `json:"end_turn"`
+	Weight     float64                `json:"weight"`
+	Metadata   map[string]interface{} `json:"metadata"`
+	Recipient  string                 `json:"recipient"`
+	Download   []map[string]string    `json:"downloads"`
 }
 
 // Content is the content for chat service.
