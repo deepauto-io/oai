@@ -46,7 +46,7 @@ type Message struct {
 	Weight     float64                `json:"weight"`
 	Metadata   map[string]interface{} `json:"metadata"`
 	Recipient  string                 `json:"recipient"`
-	Downloads  []map[string]string    `json:"downloads"`
+	Downloads  []map[string]string    `json:"downloads,omitempty"`
 }
 
 // Content is the content for chat service.
